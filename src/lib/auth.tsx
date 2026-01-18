@@ -55,7 +55,7 @@ export const useAuth = () => {
   return useContext(AuthContext)
 }
 
-export const AuthProvider: React.FC = ({ children }) => {
+export const AuthProvider = ({ children }: React.PropsWithChildren) => {
   const auth = useProvideAuth()
   const { pathname } = useRouter()
 

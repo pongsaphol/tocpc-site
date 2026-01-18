@@ -20,7 +20,7 @@ const validate = (
   values: any,
   requireAddress: boolean,
   requireSize: boolean,
-  uploadedFiles: number
+  uploadedFiles: number,
 ) => {
   const errors: any = {}
 
@@ -64,14 +64,14 @@ const Donate = () => {
   const [souvenirs, setSouvenirs] = useState<string[]>([])
   const [getShirt, setGetShirt] = useState(false)
   const { getRootProps, getInputProps } = useDropzone({
-    accept: 'image/*',
+    accept: { 'image/*': [] },
     onDrop: (acceptedFiles: any) => {
       setFiles(
         acceptedFiles.map((file: any) =>
           Object.assign(file, {
             preview: URL.createObjectURL(file),
-          })
-        )
+          }),
+        ),
       )
     },
   })
@@ -96,7 +96,7 @@ const Donate = () => {
       { name: 'พวงกุญแจ', min: 300 },
       { name: 'เสื้อยืด', min: 1000 },
     ],
-    []
+    [],
   )
 
   useEffect(() => {
@@ -115,7 +115,7 @@ const Donate = () => {
       // Make sure to revoke the data uris to avoid memory leaks
       files.forEach((file: any) => URL.revokeObjectURL(file.preview))
     },
-    [files]
+    [files],
   )
 
   const handleSubmitForm = async (data: any, file: File) => {
@@ -292,7 +292,9 @@ const Donate = () => {
                           <Field
                             className={classnames(
                               'text-white border block w-full bg-black p-3 focus:outline-none rounded-md',
-                              errors.address ? 'border-red-400' : 'border-black'
+                              errors.address
+                                ? 'border-red-400'
+                                : 'border-black',
                             )}
                             id="address"
                             name="address"
@@ -317,7 +319,7 @@ const Donate = () => {
                               'text-white border block w-full bg-black p-3 focus:outline-none rounded-md',
                               errors.postcode
                                 ? 'border-red-400'
-                                : 'border-black'
+                                : 'border-black',
                             )}
                             id="postcode"
                             name="postcode"
@@ -340,7 +342,7 @@ const Donate = () => {
                           <Field
                             className={classnames(
                               'text-white border block w-full bg-black p-3 focus:outline-none rounded-md',
-                              errors.tel ? 'border-red-400' : 'border-black'
+                              errors.tel ? 'border-red-400' : 'border-black',
                             )}
                             id="tel"
                             name="tel"
@@ -464,7 +466,7 @@ const Donate = () => {
                           {...getRootProps({ className: 'dropzone' })}
                           className={classnames(
                             'overflow-hidden relative text-white rounded-xl border-separate h-96 border-dashed  border-2 flex flex-col gap-2 justify-center items-center',
-                            errors.file ? 'border-red-400' : 'border-white'
+                            errors.file ? 'border-red-400' : 'border-white',
                           )}
                         >
                           {files.length > 0 ? (

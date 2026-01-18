@@ -34,14 +34,14 @@ export const Nav = () => {
       x: '-100%',
       opacity: 1,
       transition: {
-        type: 'tween',
+        type: 'tween' as const,
         stiffness: 100,
       },
     },
     close: {
       x: 0,
       transition: {
-        type: 'tween',
+        type: 'tween' as const,
         stiffness: 100,
       },
     },
@@ -76,7 +76,7 @@ export const Nav = () => {
       <div
         className={classnames(
           'flex w-full justify-between max-w-4xl items-center border-white py-5 sm:pt-12',
-          (pathname === '/about' || pathname === '/scope') && 'border-b'
+          (pathname === '/about' || pathname === '/scope') && 'border-b',
         )}
       >
         <div className="flex items-center justify-center">
@@ -117,7 +117,7 @@ export const Nav = () => {
             <a
               className={classnames(
                 'font-display sm:mr-4 md:mr-8 mb-6 sm:mb-0 font-semibold text-white',
-                getClass('/', 'ul')
+                getClass('/', 'ul'),
               )}
             >
               Home
@@ -127,7 +127,7 @@ export const Nav = () => {
             <a
               className={classnames(
                 'font-display sm:mr-4 md:mr-8 mb-6 sm:mb-0 font-semibold text-white',
-                getClass('/about', 'ul')
+                getClass('/about', 'ul'),
               )}
             >
               About us
@@ -137,7 +137,7 @@ export const Nav = () => {
             <a
               className={classnames(
                 'font-display sm:mr-4 md:mr-8 mb-6 sm:mb-0 font-semibold text-white',
-                getClass('/ranks', 'ul')
+                getClass('/ranks', 'ul'),
               )}
             >
               Ranks
@@ -263,7 +263,7 @@ export const Nav = () => {
                   className={classnames(
                     'mt-2 font-semibold text-sm',
                     getClass('/', 'color'),
-                    getClass('/', 'ul')
+                    getClass('/', 'ul'),
                   )}
                 >
                   Home
@@ -275,7 +275,7 @@ export const Nav = () => {
                 <svg
                   className={classnames(
                     'fill-current',
-                    getClass('/about', 'color')
+                    getClass('/about', 'color'),
                   )}
                   width="38"
                   height="38"
@@ -294,7 +294,7 @@ export const Nav = () => {
                   className={classnames(
                     'mt-2 font-semibold text-sm',
                     getClass('/about', 'color'),
-                    getClass('/about', 'ul')
+                    getClass('/about', 'ul'),
                   )}
                 >
                   About
@@ -306,7 +306,7 @@ export const Nav = () => {
                 <svg
                   className={classnames(
                     'fill-current',
-                    getClass('/ranks', 'color')
+                    getClass('/ranks', 'color'),
                   )}
                   style={{ width: '100%', height: '48px' }}
                   width="20"
@@ -332,7 +332,7 @@ export const Nav = () => {
                   className={classnames(
                     'mt-2 font-semibold text-sm',
                     getClass('/ranks', 'color'),
-                    getClass('/ranks', 'ul')
+                    getClass('/ranks', 'ul'),
                   )}
                 >
                   Ranks

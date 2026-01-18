@@ -1,4 +1,3 @@
-import { FunctionComponent } from 'react'
 interface DonationButtonProps {
   isSelected: boolean
   amount: number

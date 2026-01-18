@@ -1,7 +1,7 @@
-import { FunctionComponent } from 'react'
+import { PropsWithChildren } from 'react'
 import { Nav } from 'components/Nav'
 import { Footer } from './Footer'
-export const Layout: FunctionComponent = ({ children }) => (
+export const Layout = ({ children }: PropsWithChildren) => (
   <>
     <div className="relative w-full h-full">
       <Nav />

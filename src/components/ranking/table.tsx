@@ -1,7 +1,6 @@
 import classNames from 'classnames'
 import { IColumn, IData } from 'components/Ranking'
 import { useWindowDimensions } from 'lib/useWindowDimensions'
-import { ElementHandle } from 'puppeteer-core'
 import { FC, useState } from 'react'
 
 type Columns = 'rank' | 'name' | 'total'
@@ -104,7 +103,7 @@ export const Table: FC<{ columns: Array<IColumn>; data: Array<IData> }> = ({
                 key={i}
                 className={classNames(
                   'h-4 border-b border-gray-600 pb-4',
-                  calculateCellStyles('head', col.code)
+                  calculateCellStyles('head', col.code),
                 )}
               >
                 <span className="font-display text-white">{col.name}</span>
@@ -123,7 +122,7 @@ export const Table: FC<{ columns: Array<IColumn>; data: Array<IData> }> = ({
                     key={i}
                     className={classNames(
                       'h-8 border-b border-gray-600 py-4',
-                      calculateCellStyles('data', dItem)
+                      calculateCellStyles('data', dItem),
                     )}
                   >
                     <span className="font-display text-white font-light">
